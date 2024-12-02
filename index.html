@@ -20,6 +20,22 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+#animate {
+  width: 100px; /* width */
+  height: 130px; /* height */
+  position: absolute;
+  background-color: brown;
+  border-radius: 50%; /* Makes the object round */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
 body {
   background-image: url("paintings.jpg");
   background-repeat: no-repeat;
@@ -53,9 +69,61 @@ p {
   <h1 onclick="changeText(this)">Rojay Parker</h1>
     <h2>Computer Science major Student at Virginia State University</h2>
 </div>
+
+<p>
+  <button onclick="myMove()">Start</button>
+  <button onclick="stopMove()">Stop</button>
+</p> 
+<div id="animate" onclick="changeText()">Egg?</div>
+
+<div id="animate"></div>
 <script>
 function changeText(id) {
   id.innerHTML = "Eater Egg found! >(*^*)<";
+}
+let animationId = null; // To store the interval ID
+let posX = 0; // X position
+let posY = 0; // Y position
+let speedX = 2; // Speed in X direction
+let speedY = 2; // Speed in Y direction
+const messages = ["really?", "Try Again!", "Shame on you", "fooled you again!"];
+let messageIndex = 0;
+
+function myMove() {
+  const elem = document.getElementById("animate");
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  // If animation is already running, do nothing
+  if (animationId !== null) return;
+
+  animationId = setInterval(() => {
+    posX += speedX;
+    posY += speedY;
+
+    // Bounce off walls
+    if (posX + 100 > screenWidth || posX < 0) {
+      speedX = -speedX;
+    }
+    if (posY + 50 > screenHeight || posY < 0) {
+      speedY = -speedY;
+    }
+
+    elem.style.left = posX + "px";
+    elem.style.top = posY + "px";
+  }, 10);
+}
+
+function stopMove() {
+  // Stop the animation
+  clearInterval(animationId);
+  animationId = null; // Reset the interval ID to allow resuming
+}
+
+function changeText() {
+  const elem = document.getElementById("animate");
+  messageIndex = (messageIndex + 1) % messages.length; // Cycle through messages
+  elem.textContent = messages[messageIndex];
 }
 </script>
 <div class="dropdown">
