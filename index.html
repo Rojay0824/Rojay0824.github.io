@@ -66,7 +66,7 @@ p {
 </head>
 <body>
 <div class="header">
-  <h1 onclick="changeText(this)">Rojay Parker</h1>
+  <h1 onclick="this.innerHTML = 'Eater Egg found! >(*^*)<'">Rojay Parker</h1>
     <h2>Computer Science major Student at Virginia State University</h2>
 </div>
 
@@ -78,15 +78,13 @@ p {
 
 <div id="animate"></div>
 <script>
-function changeText(id) {
-  id.innerHTML = "Eater Egg found! >(*^*)<";
 }
 let animationId = null; // To store the interval ID
 let posX = 0; // X position
 let posY = 0; // Y position
 let speedX = 2; // Speed in X direction
 let speedY = 2; // Speed in Y direction
-const messages = ["really?", "Try Again!", "Shame on you", "fooled you again!"];
+const messages = ["really?", "Try Again!", "Shame on you", "fooled you again!", "Not an Egg!"];
 let messageIndex = 0;
 
 function myMove() {
