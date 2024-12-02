@@ -50,17 +50,20 @@ p {
 </head>
 <body>
 <div class="header">
-  <h1>Rojay Parker</h1>
+  <h1 onclick="changeText(this)">Rojay Parker</h1>
     <h2>Computer Science major Student at Virginia State University</h2>
 </div>
-
-<p style="border:2px solid Gray;">I'm hosted with GitHub Pages.</p>
-
+<script>
+function changeText(id) {
+  id.innerHTML = "Eater Egg found! >(*^*)<";
+}
+</script>
 <div class="dropdown">
-  <span>Link to my github repositories</span>
+  <span><p onclick="this.innerHTML = 'Another one! >(*^*)<'">I'm hosted with GitHub Pages.</p></span>
   <div class="dropdown-content">
-  <a href="https://github.com/Rojay0824" target="_blank">This is a link</a>
+  <a href="https://github.com/Rojay0824" target="_blank">Link to my github repositories</a>
   </div>
 </div>
+<p>Make sure to find Easter Eggs!</p>
 </body>
 </html>
