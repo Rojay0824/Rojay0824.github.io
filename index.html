@@ -27,7 +27,7 @@
   position: absolute;
   background-color: brown;
   border-radius: 50%; /* Makes the object round */
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   color: white;
@@ -93,6 +93,9 @@ function myMove() {
   const elem = document.getElementById("animate");
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
+
+  // Make the object visible
+  elem.style.display = "flex";
 
   // If animation is already running, do nothing
   if (animationId !== null) return;
