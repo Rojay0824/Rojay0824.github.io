@@ -2,8 +2,34 @@
 <html>
 <head>
 <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 body {
   background-image: url("paintings.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+}
+.header {
+  background-color: #3dd5a3;
+  padding: 20px;
+  text-align: center;
 }
 h1 {
   color: black;
@@ -23,8 +49,18 @@ p {
 </style>
 </head>
 <body>
-<h1 style="border:2px solid Gray;">Rojay Parker</h1>
-  <h2 style="border:2px solid Gray;">Computer Science major Student at Virginia State University</h2>
+<div class="header">
+  <h1>Rojay Parker</h1>
+    <h2>Computer Science major Student at Virginia State University</h2>
+</div>
+
 <p style="border:2px solid Gray;">I'm hosted with GitHub Pages.</p>
+
+<div class="dropdown">
+  <span>Link to my github repositories</span>
+  <div class="dropdown-content">
+  <a href="https://github.com/Rojay0824" target="_blank">This is a link</a>
+  </div>
+</div>
 </body>
 </html>
